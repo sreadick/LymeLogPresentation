@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick'
 import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
+import { Session } from 'meteor/session';
 
 import PublicHeader from '../components/PublicHeader';
+import ContactForm from '../components/ContactForm';
 
 configureAnchors({scrollDuration: 800});
 
@@ -25,6 +27,7 @@ export default class Landing extends React.Component {
     return (
       <div>
         <PublicHeader currentPage='Landing' />
+        {Session.get('showContactForm') && <ContactForm /> }
         <div className="landing__section landing__section--main">
           <div className="landing__section--main__flex-wrapper">
             <h1 className="landing__section--main__heading">Lyme Management, Made <span>Easy</span>.</h1>

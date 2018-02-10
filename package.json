@@ -7,6 +7,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.36",
     "meteor-node-stubs": "^0.3.2",
+    "moment": "^2.20.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -14,6 +15,7 @@
     "react-router-dom": "^4.1.2",
     "react-router-hash-link": "^1.1.0",
     "react-scrollable-anchor": "^0.6.1",
-    "react-slick": "^0.18.0"
+    "react-slick": "^0.18.0",
+    "simpl-schema": "^1.4.2"
   }
 }

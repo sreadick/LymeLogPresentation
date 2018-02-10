@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Session } from 'meteor/session';
 
 const PublicHeader = (props) => (
   <div className='nav-header public landing'>
@@ -22,7 +23,7 @@ const PublicHeader = (props) => (
           <Link className="nav-header__link public" to="/clinicians">Clinicians</Link>
         }
         <Link className="nav-header__link public" to="#">About Us</Link>
-        <Link className="nav-header__link public" to="#">FAQs</Link>
+        <Link className="nav-header__link public" onClick={() => Session.set('showContactForm', true)} to="#">Learn More</Link>
       </div>
     </div>
   </div>
