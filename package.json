@@ -17,5 +17,8 @@
     "react-scrollable-anchor": "^0.6.1",
     "react-slick": "^0.18.0",
     "simpl-schema": "^1.4.2"
+  },
+  "engines": {
+    "node": "6.10.1"
   }
 }
