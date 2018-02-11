@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick'
 import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 import PropTypes from 'prop-types';
+import { Session } from 'meteor/session';
 
 import PublicHeader from '../components/PublicHeader';
+import ContactForm from '../components/ContactForm';
 
 configureAnchors({scrollDuration: 800});
 
@@ -26,6 +28,7 @@ export default class ClinicianLanding extends React.Component {
     return (
       <div>
         <PublicHeader currentPage='ClinicianLanding' />
+        {Session.get('showContactForm') && <ContactForm /> }
         <div className="landing__section landing__section--main--doctor">
           <div className="landing__section--main__flex-wrapper">
             {/* <h1 className="landing__section--main__heading"><span>Welcome to </span>LymeLog<span><sup>MD</sup> for Clinicians</span></h1> */}
@@ -173,7 +176,7 @@ export default class ClinicianLanding extends React.Component {
             <div className="row">
               <div className="col l6 s12">
                 <h5 className="white-text">Have a Question?</h5>
-                <p className="grey-text text-lighten-4">See our <a href='#'>FAQ Page</a> or call our delightful support staff at (212) 787 8000.</p>
+                <p className="grey-text text-lighten-4">See our <a href='#'>FAQ Page</a></p>
               </div>
               <div className="col l4 offset-l2 s12">
                 {/* <h5 className="white-text">Links</h5> */}

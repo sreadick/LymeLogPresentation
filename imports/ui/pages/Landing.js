@@ -32,15 +32,19 @@ export default class Landing extends React.Component {
           <div className="landing__section--main__flex-wrapper">
             <h1 className="landing__section--main__heading">Lyme Management, Made <span>Easy</span>.</h1>
 
-            <div className='landing__section--main__row'>
-              <div className='landing__section--main__row--left'>
+            {/* <div className='landing__section--main__row'> */}
+            {/* <div> */}
+              {/* <div className='landing__section--main__row--left'>
                 <p className='landing__section--main__subheading'>Organize your treatment and track your progress with the click of a button!</p>
                 <Link className="landing__section--main__button" to="/signup">Get Started For Free</Link>
-              </div>
-              <div className='landing__section--main__video__wrapper'>
+              </div> */}
+              {/* <div className=''> */}
+                <p className='landing__section--main__subheading'>Organize your treatment and track your progress with the click of a button!</p>
+              {/* </div> */}
+              {/* <div className='landing__section--main__video__wrapper'> */}
                 <video className='landing__section--main__video' src='/videos/Kazam_screencast_00000.mp4' poster='/images/LandingPageScreenshot.png' autoPlay loop></video>
-              </div>
-            </div>
+              {/* </div> */}
+            {/* </div> */}
 
           </div>
         </div>
@@ -174,7 +178,7 @@ export default class Landing extends React.Component {
             <div className="row">
               <div className="col l6 s12">
                 <h5 className="white-text">Have a Question?</h5>
-                <p className="grey-text text-lighten-4">See our <a href='#'>FAQ Page</a> or call our delightful support staff at (212) 787 8000.</p>
+                <p className="grey-text text-lighten-4">See our <a href='#'>FAQ Page</a></p>
               </div>
               <div className="col l4 offset-l2 s12">
                 {/* <h5 className="white-text">Links</h5> */}
