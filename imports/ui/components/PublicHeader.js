@@ -10,13 +10,16 @@ const PublicHeader = (props) => (
         <Link
           className={`nav-header__link--title public ${props.currentPage === 'ClinicianLanding' && 'nav-header__link--title--doctor'}`}
           to="/">
-          {props.currentPage === 'ClinicianLanding' ?
+          {/* {props.currentPage === 'ClinicianLanding' ?
             <span>LymeLog<sup>MD</sup></span> : props.title
-          }
+          } */}
+          {props.title}
         </Link>
       </div>
+      <div>(This Page is Under Construction).</div>
+      <div></div>
 
-      <div>
+      {/* <div>
         {props.currentPage === 'ClinicianLanding' ?
           <Link className="nav-header__link public" to="/">Patients</Link>
         :
@@ -24,7 +27,7 @@ const PublicHeader = (props) => (
         }
         <Link className="nav-header__link public" to="#">About Us</Link>
         <Link className="nav-header__link public" onClick={() => Session.set('showContactForm', true)} to="#">Learn More</Link>
-      </div>
+      </div> */}
     </div>
   </div>
 );
