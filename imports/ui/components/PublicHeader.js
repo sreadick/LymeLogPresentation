@@ -16,7 +16,7 @@ const PublicHeader = (props) => (
           {props.title}
         </Link>
       </div>
-      <div>(This Page is Under Construction).</div>
+      <div>(This Page is Under Construction)</div>
       <div></div>
 
       {/* <div>

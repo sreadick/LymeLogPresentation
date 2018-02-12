@@ -20,7 +20,7 @@ Meteor.methods({
     new SimpleSchema({
       email: {
         type: String,
-        min: 3
+        min: 5
       },
       contactType: {
         type: String,
@@ -29,11 +29,13 @@ Meteor.methods({
       firstName: {
         type: String,
         min: 1,
-        optional: true
       },
       lastName: {
         type: String,
         min: 1,
+      },
+      comments: {
+        type: String,
         optional: true
       }
     }).validate({...contactInfo});

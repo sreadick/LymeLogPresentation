@@ -99,9 +99,14 @@
     flex: 1;
   }
   div:nth-of-type(2) {
-    color: #444;
+    word-spacing: .2rem;
+    color: #222;
+    color: $dark-blue;
     text-align: center;
-    font-size: 1.3rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    font-style: italic;
+    text-decoration: underline;
   }
 }
 

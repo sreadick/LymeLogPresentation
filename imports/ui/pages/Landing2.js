@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { createContainer } from 'meteor/react-meteor-data';
 import Slider from 'react-slick'
 import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor';
 import { Session } from 'meteor/session';
@@ -9,13 +10,14 @@ import ContactForm from '../components/ContactForm';
 
 configureAnchors({scrollDuration: 800});
 
-export default class Landing2 extends React.Component {
+class Landing2 extends React.Component {
 
   render() {
+    console.log(this.props.showContactForm);
     return (
       <div>
         <PublicHeader currentPage='Landing' />
-        {Session.get('showContactForm') && <ContactForm /> }
+        {this.props.showContactForm && <ContactForm /> }
         <div className="landing__section landing__section--main">
           <div className="landing__section--main__flex-wrapper">
             <div>
@@ -29,9 +31,21 @@ export default class Landing2 extends React.Component {
                 <p className='landing__section--main__subheading'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <Link className="landing__section--main__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
               </div>
+
               <div className='landing__section--main__video__wrapper'>
-                <video className='landing__section--main__video' src='/videos/Kazam_screencast_00000.mp4' poster='/images/LandingPageScreenshot.png' autoPlay loop></video>
+                <video className='responsive-video landing__section--main__video' autoPlay loop controls>
+                  <source src='/videos/Kazam_screencast_00000.mp4' type="video/mp4" />
+                </video>
               </div>
+              {/* <div className='landing__section__preview-image__wrapper'>
+                <Slider dots={true} arrows={false} autoplay={true}>
+                  <div><img className='landing__section--main__video' src='/images/preview/treatment-name.png' /></div>
+                  <div><img className='landing__section--main__video' src='/images/preview/treatment-schedule.png' /></div>
+                  <div><img className='landing__section--main__video' src='/images/preview/treatment-dosing.png' /></div>
+                  <div><img className='landing__section--main__video' src='/images/preview/treatment-instructions.png' /></div>
+                  <div><img className='landing__section--main__video' src='/images/preview/treatment-info.png' /></div>
+                </Slider>
+              </div> */}
             </div>
 
           </div>
@@ -68,3 +82,10 @@ export default class Landing2 extends React.Component {
     );
   }
 };
+
+export default createContainer(() => {
+  return {
+    // submitInfoSuccess: Session.get('submitInfoSuccess')
+    showContactForm: Session.get('showContactForm')
+  };
+}, Landing2);
