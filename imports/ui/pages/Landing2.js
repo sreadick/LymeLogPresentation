@@ -13,7 +13,6 @@ configureAnchors({scrollDuration: 800});
 class Landing2 extends React.Component {
 
   render() {
-    console.log(this.props.showContactForm);
     return (
       <div>
         <PublicHeader currentPage='Landing' />
@@ -33,6 +32,7 @@ class Landing2 extends React.Component {
               </div>
 
               <div className='landing__section--main__video__wrapper'>
+                {/* <img src='/images/computer_screen.jpg'/> */}
                 <video className='responsive-video landing__section--main__video' autoPlay loop controls>
                   <source src='/videos/Kazam_screencast_00000.mp4' type="video/mp4" />
                 </video>

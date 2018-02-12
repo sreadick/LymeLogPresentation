@@ -15,14 +15,17 @@ if (Meteor.isServer) {
 
 Meteor.methods({
   'contacts.insert'(contactInfo) {
-    console.log(222);
 
     new SimpleSchema({
       email: {
         type: String,
         min: 5
       },
-      contactType: {
+      contactTypes: {
+        type: Array,
+        min: 1,
+      },
+      'contactTypes.$': {
         type: String,
         min: 1,
       },
@@ -33,6 +36,9 @@ Meteor.methods({
       lastName: {
         type: String,
         min: 1,
+      },
+      betaVolunteer: {
+        type: Boolean
       },
       comments: {
         type: String,

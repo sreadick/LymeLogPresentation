@@ -10,31 +10,43 @@ class ContactForm extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
-      contactType: 'patient',
       email: '',
+      contactTypes: [],
+      contactTypeOtherText: '',
+      betaVolunteer: false,
       comments: '',
       formHeight: 0
     }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleToggleCheckbox = this.handleToggleCheckbox.bind(this);
   }
 
   componentDidMount() {
     const form = document.getElementById('contact-form--questionaire');
-    // console.log(this.form);
     if (form) {
       this.setState({formHeight: form.offsetHeight});
     }
   }
   handleSubmit(e) {
     e.preventDefault();
-    firstName = this.state.firstName.trim();
-    lastName = this.state.lastName.trim();
-    contactType = this.state.contactType.trim();
-    email = this.state.email.trim();
-    comments = this.state.comments.trim();
+    let firstName = this.state.firstName.trim();
+    let lastName = this.state.lastName.trim();
+    let contactTypes = this.state.contactTypes.slice();
+    let contactTypeOtherText = this.state.contactTypeOtherText.trim();
+    let email = this.state.email.trim();
+    let betaVolunteer = this.state.betaVolunteer;
+    let comments = this.state.comments.trim();
 
-    Meteor.call('contacts.insert', {firstName, lastName, contactType, email, comments},
+    if (contactTypes.includes('other') && contactTypeOtherText.length > 0) {
+      const contactTypeOtherIndex = contactTypes.indexOf('other');
+      contactTypes.splice(contactTypeOtherIndex, 1, 'other: '.concat(contactTypeOtherText));
+    }
+
+    if (contactTypes.length === 0) {
+      contactTypes.push('unspecified');
+    }
+
+    Meteor.call('contacts.insert', {firstName, lastName, contactTypes, email, betaVolunteer, comments},
       (err, res) => {
         if (err) {
           console.log(err);
@@ -44,22 +56,33 @@ class ContactForm extends React.Component {
       }
     )
   }
-
-  handleChange(e) {
-
-  }
-
   exitForm(e) {
-    // Session.set('showContactForm', false);
-    // console.log(e.target.id);
-    // console.log(e.target.classList);
     if (e.target.id === 'contact-form__box__overlay' || e.target.id === 'contact-form__icon--close' || e.target.id == 'contact-form__button--close-form') {
       Session.set('submitInfoSuccess', false);
       Session.set('showContactForm', false);
-    } else {
-      // console.log(789);
     }
   }
+  handleToggleCheckbox(e) {
+    let contactTypes = this.state.contactTypes.slice();
+    if (contactTypes.includes(e.target.value)) {
+      const contactTypeIndex = contactTypes.indexOf(e.target.value);
+      contactTypes.splice(contactTypeIndex, 1);
+    } else {
+      contactTypes.push(e.target.value);
+    }
+    // let contactType = this.state.contactType.slice();
+    // if (contactType.includes(e.target.value)) {
+    //   const contactTypeIndex = contactType.indexOf(e.target.value);
+    //   contactType.splice(contactTypeIndex, 1);
+    // } else if (e.target.id === 'content-type-other-text') {
+    //   const contactTypeOtherIndex = contactType.indexOf('other');
+    //   contactType.splice(contactTypeOtherIndex, 1, e.target.value.trim().length === 0 ? 'other' : 'other: '.concat(e.target.value));
+    // } else {
+    //   contactType.push(e.target.value);
+    // }
+    this.setState({contactTypes})
+  }
+
 
   render() {
     return (
@@ -100,14 +123,33 @@ class ContactForm extends React.Component {
                   </div>
                 </div>
 
-                {/* <div className='row'>
-                  <label htmlFor='firstName'>Are you a patient or practitioner?</label>
-                  <select className='browser-default' name="contactType" value={this.state.contactType} onChange={(e) => this.setState({[e.target.name]: e.target.value})} >
-                    <option value='patient'>Patient</option>
-                    <option value='practitioner'>Practitioner</option>
-                  </select>
-                </div> */}
-                <div>
+                <div className='row'>
+                  <div className='col s6'>
+                    <p className='contact-form__label--radio-group'>Are You a...</p>
+                    <p>
+                      <input type="checkbox" name='contactTypes' id="investor" value='investor' checked={this.state.contactTypes.includes('investor')} onChange={this.handleToggleCheckbox}/>
+                      <label htmlFor="investor">Investor</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" name='contactTypes' id="health_care_provider" value='health_care_provider' checked={this.state.contactTypes.includes('health_care_provider')} onChange={this.handleToggleCheckbox}/>
+                      <label htmlFor="health_care_provider">Health Care Provider</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" name='contactTypes' id="patient" value='patient' checked={this.state.contactTypes.includes('patient')} onChange={this.handleToggleCheckbox}/>
+                      <label htmlFor="patient">Patient</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" name='contactTypes' id="other" value='other' checked={this.state.contactTypes.includes('other')} onChange={this.handleToggleCheckbox}/>
+                      <label htmlFor="other">Other</label>
+                    </p>
+                    {/* {this.state.contactType.find(string => string.substring(0, 5) === 'other') &&
+                      <input type='abc' id='content-type-other-text' className='ggg' name="contactType" placeholder='specify' onChange={this.handleToggleCheckbox} />
+                    } */}
+                    {this.state.contactTypes.includes('other') &&
+                      <input type='abc' id='contactTypeOtherText' className='ggg' name="contactTypeOtherText" value={this.state.contactTypeOtherText} placeholder='specify' onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
+                    }
+                  </div>
+                {/* <div>
                   <p className='contact-form__label--radio-group'>Are you a:</p>
                   <p>
                     <input name="contactType" type="radio" id="investor" value='investor' defaultChecked onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
@@ -132,11 +174,21 @@ class ContactForm extends React.Component {
                   {(this.state.contactType !== 'investor' && this.state.contactType !== 'health_care_provider' && this.state.contactType !== 'patient') &&
                     <input type='abc' className='ggg' name="contactType" placeholder='specify' onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
                   }
+                </div> */}
+
+                  <div className='col s6'>
+                    <p>Would You be Interested in Joining Our Beta Program?</p>
+                    <p>
+                      <input type="checkbox" name='betaVolunteer' id='betaVolunteer' value={true} checked={this.state.betaVolunteer} onChange={(e) => this.setState({betaVolunteer: !this.state.betaVolunteer})} />
+                      <label htmlFor="betaVolunteer">Yes</label>
+                    </p>
+                  </div>
                 </div>
+
 
                 <div className="row">
                   <div className="input-field col s12">
-                    <textarea id="comments" name className="materialize-textarea" onChange={(e) => this.setState({[e.target.name]: e.target.value})}></textarea>
+                    <textarea id="comments" name='comments' className="materialize-textarea" onChange={(e) => this.setState({[e.target.name]: e.target.value})}></textarea>
                     <label htmlFor="comments">Any Comments? (optional)</label>
                   </div>
                 </div>
@@ -154,10 +206,10 @@ class ContactForm extends React.Component {
 };
 
 export default createContainer(() => {
-  const form = document.getElementById('contact-form--questionaire');
-  if (form) {
-    console.log(form.offsetHeight);
-  }
+  // const form = document.getElementById('contact-form--questionaire');
+  // if (form) {
+  //   console.log(form.offsetHeight);
+  // }
   return {
     submitInfoSuccess: Session.get('submitInfoSuccess')
   };
