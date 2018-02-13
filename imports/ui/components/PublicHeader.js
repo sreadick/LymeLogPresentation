@@ -4,19 +4,11 @@ import PropTypes from 'prop-types';
 import { Session } from 'meteor/session';
 
 const PublicHeader = (props) => (
-  <div className='nav-header public landing'>
+  <div className='nav-header'>
     <div className="nav-header__content">
-      <div>
-        <Link
-          className={`nav-header__link--title public ${props.currentPage === 'ClinicianLanding' && 'nav-header__link--title--doctor'}`}
-          to="/">
-          {/* {props.currentPage === 'ClinicianLanding' ?
-            <span>LymeLog<sup>MD</sup></span> : props.title
-          } */}
-          {props.title}
-        </Link>
-      </div>
-      <div>(This Page is Under Construction)</div>
+      <div className='nav-header__title'>{props.title}</div>
+      {/* <div>(This Page is Under Construction)</div> */}
+      <div></div>
       <div></div>
 
       {/* <div>

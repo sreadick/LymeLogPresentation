@@ -14,70 +14,75 @@ class Landing2 extends React.Component {
 
   render() {
     return (
-      <div>
-        <PublicHeader currentPage='Landing' />
+      <div className="landing__section">
         {this.props.showContactForm && <ContactForm /> }
-        <div className="landing__section landing__section--main">
-          <div className="landing__section--main__flex-wrapper">
-            <div>
-              <h1 className="landing__section--main__heading">Lyme Management, Made <span>Easy</span>.</h1>
-              <h1 className="landing__section--main__heading">Tracking Your Treatment</h1>
+        <PublicHeader currentPage='Landing' />
+        <div className="landing__section__flex-wrapper">
+          <div>
+            <h1 className="landing__section__heading">Lyme Management, Made <span>Easy</span>.</h1>
+            {/* <h1 className="landing__section__heading">Tracking Your Treatment</h1> */}
+          </div>
+
+          <div className='landing__section__row'>
+            <div className='landing__section__row--left'>
+              {/* <p className='landing__section__subheading'>Organize your treatment and track your progress with the click of a button!</p> */}
+              {/* <p className='landing__section__subheading'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> */}
+              <div className='landing__section__subheading__container'>
+                <p className='landing__section__subheading'>Lymelog is an app designed to help late Lyme Disease patients and healthcare professionals track and monitor symptoms and treatments.</p>
+                <p className='landing__section__subheading'>For patients, you simply check the boxes for which symptoms you have, and which medications you take. It's that easy!</p>
+                <p className='landing__section__subheading'>For healthcare professionals, you will be able to track your patients' symptoms and medications over time, and quickly discover which medications work best for each individual patient.</p>
+                <p className='landing__section__subheading'>If you suffer from late Lyme Disease, please give our app a try.  You will optimize your treatment, and feel so much better.</p>
+              </div>
+              <Link className="landing__section__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
             </div>
 
-            <div className='landing__section--main__row'>
-              <div className='landing__section--main__row--left'>
-                {/* <p className='landing__section--main__subheading'>Organize your treatment and track your progress with the click of a button!</p> */}
-                <p className='landing__section--main__subheading'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <Link className="landing__section--main__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
-              </div>
-
-              <div className='landing__section--main__video__wrapper'>
-                {/* <img src='/images/computer_screen.jpg'/> */}
-                <video className='responsive-video landing__section--main__video' autoPlay loop controls>
-                  <source src='/videos/Kazam_screencast_00000.mp4' type="video/mp4" />
-                </video>
-              </div>
-              {/* <div className='landing__section__preview-image__wrapper'>
-                <Slider dots={true} arrows={false} autoplay={true}>
-                  <div><img className='landing__section--main__video' src='/images/preview/treatment-name.png' /></div>
-                  <div><img className='landing__section--main__video' src='/images/preview/treatment-schedule.png' /></div>
-                  <div><img className='landing__section--main__video' src='/images/preview/treatment-dosing.png' /></div>
-                  <div><img className='landing__section--main__video' src='/images/preview/treatment-instructions.png' /></div>
-                  <div><img className='landing__section--main__video' src='/images/preview/treatment-info.png' /></div>
-                </Slider>
-              </div> */}
+            <div className='landing__section__video__wrapper'>
+              {/* <img src='/images/computer_screen.jpg'/> */}
+              <video className='responsive-video landing__section__video' autoPlay loop controls>
+                <source src='/videos/Kazam_screencast_00000.mp4' type="video/mp4" />
+              </video>
             </div>
-
+          </div>
+          
+          <div className='landing__section--feature-item__row'>
+            <div className="landing__section--feature-item">
+              <i className="landing__section--feature-item__icon material-icons">schedule</i>
+              <h5 className='landing__section--feature-item__caption'>Select Symptoms and Treatments</h5>
+            </div>
+            <div className="landing__section--feature-item">
+              <i className="landing__section--feature-item__icon material-icons">timeline</i>
+              <h5 className='landing__section--feature-item__caption'>Check in and Track Your Progress</h5>
+            </div>
+            <div className="landing__section--feature-item">
+              <i className="landing__section--feature-item__icon material-icons">person_add</i>
+              <h5 className='landing__section--feature-item__caption'>Link Accounts with Your Doctor</h5>
+            </div>
+            <div className="landing__section--feature-item">
+              <i className="landing__section--feature-item__icon material-icons">people_outline</i>
+              <h5 className='landing__section--feature-item__caption'>Be Part of the Community</h5>
+            </div>
           </div>
         </div>
 
-        <div className='landing__section--feature-item__row'>
-          <div className="landing__section--feature-item">
-            <i className="landing__section--feature-item__icon material-icons">schedule</i>
-            <h5 className='landing__section--feature-item__caption'>Select Symptoms and Treatments</h5>
-            {/* <p className='landing__section--feature-item__description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p> */}
-            {/* <a href='#landing__section--3' className='landing__section--feature-item__scroll-link'> Learn More <i className="large material-icons">keyboard_arrow_down</i> </a> */}
-          </div>
-          <div className="landing__section--feature-item">
-            <i className="landing__section--feature-item__icon material-icons">timeline</i>
-            <h5 className='landing__section--feature-item__caption'>Check in and Track Your Progress</h5>
-            {/* <p className='landing__section--feature-item__description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p> */}
-            {/* <a href='#landing__section--4' className='landing__section--feature-item__scroll-link'> Learn More <i className="large material-icons">keyboard_arrow_down</i> </a> */}
-          </div>
-          <div className="landing__section--feature-item">
-            <i className="landing__section--feature-item__icon material-icons">person_add</i>
-            <h5 className='landing__section--feature-item__caption'>Link Accounts with Your Doctor</h5>
-            {/* <p className='landing__section--feature-item__description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p> */}
-            {/* <a href='#landing__section--5' className='landing__section--feature-item__scroll-link'> Learn More <i className="large material-icons">keyboard_arrow_down</i> </a> */}
-          </div>
-          <div className="landing__section--feature-item">
-            <i className="landing__section--feature-item__icon material-icons">people_outline</i>
-            <h5 className='landing__section--feature-item__caption'>Be Part of the Community</h5>
-            {/* <p className='landing__section--feature-item__description'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p> */}
-            {/* <a href='#landing__section--l-com' className='landing__section--feature-item__scroll-link'> Learn More <i className="large material-icons">keyboard_arrow_down</i> </a> */}
-          </div>
-        </div>
 
+        <div className="landing__section__flex-wrapper--mobile">
+          <h1 className="landing__section__heading">Lyme Management, Made <span>Easy</span>.</h1>
+
+          <div className='landing__section__subheading__container'>
+            <p>Lymelog is an app designed to help late Lyme Disease patients and healthcare professionals track and monitor symptoms and treatments.</p>
+            <p>For patients, you simply check the boxes for which symptoms you have, and which medications you take. It's that easy!</p>
+            <p>For healthcare professionals, you will be able to track your patients' symptoms and medications over time, and quickly discover which medications work best for each individual patient.</p>
+            {/* <p>If you suffer from late Lyme Disease, please give our app a try.  You will optimize your treatment, and feel so much better.</p> */}
+          </div>
+
+          {/* <div className='landing__section__video__wrapper'> */}
+            <video className='responsive-video landing__section__video' autoPlay loop controls>
+              <source src='/videos/Kazam_screencast_00000.mp4' type="video/mp4" />
+            </video>
+          {/* </div> */}
+
+          <Link className="landing__section__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
+        </div>
       </div>
     );
   }
