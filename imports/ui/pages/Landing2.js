@@ -39,7 +39,15 @@ class Landing2 extends React.Component {
             <div className='landing__section__video__wrapper'>
               {/* <img src='/images/computer_screen.jpg'/> */}
               <video className='responsive-video landing__section__video' autoPlay loop controls>
-                <source src='/videos/test_v1-2018-02-14_20.46.54.mp4' type="video/mp4" />
+                <source
+                  src='/videos/test_v1-2018-02-14_20.46.54.mp4'
+                  type="video/mp4" />
+                <source
+                  src='/videos/test_v1-2018-02-14_20.59.41.ogg'
+                  type="video/ogg" />
+                <source
+                  src='/videos/test_v1-2018-02-14_21.30.35.webm'
+                  type="video/webm" />
               </video>
             </div>
           </div>
