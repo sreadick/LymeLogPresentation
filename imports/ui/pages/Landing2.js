@@ -31,7 +31,7 @@ class Landing2 extends React.Component {
                 <p className='landing__section__subheading'>Lymelog is an app designed to help late Lyme Disease patients and healthcare professionals track and monitor symptoms and treatments.</p>
                 <p className='landing__section__subheading'>For patients, you simply check the boxes for which symptoms you have, and which medications you take. It's that easy!</p>
                 <p className='landing__section__subheading'>For healthcare professionals, you will be able to track your patients' symptoms and medications over time, and quickly discover which medications work best for each individual patient.</p>
-                <p className='landing__section__subheading'>If you suffer from late Lyme Disease, please give our app a try.  You will optimize your treatment, and feel so much better.</p>
+                {/* <p className='landing__section__subheading'>If you suffer from late Lyme Disease, please give our app a try.  You will optimize your treatment, and feel so much better.</p> */}
               </div>
               <Link className="landing__section__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
             </div>
@@ -39,11 +39,11 @@ class Landing2 extends React.Component {
             <div className='landing__section__video__wrapper'>
               {/* <img src='/images/computer_screen.jpg'/> */}
               <video className='responsive-video landing__section__video' autoPlay loop controls>
-                <source src='/videos/Kazam_screencast_00000.mp4' type="video/mp4" />
+                <source src='/videos/test_v1-2018-02-14_20.46.54.mp4' type="video/mp4" />
               </video>
             </div>
           </div>
-          
+
           <div className='landing__section--feature-item__row'>
             <div className="landing__section--feature-item">
               <i className="landing__section--feature-item__icon material-icons">schedule</i>

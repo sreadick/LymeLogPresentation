@@ -88,9 +88,7 @@ class ContactForm extends React.Component {
     return (
       <div id='contact-form__box__overlay' className='contact-form__box__overlay' onClick={(e) => this.exitForm(e)}>
         <div className='contact-form__box'>
-          {/* <div className='row'> */}
-            <i id='contact-form__icon--close' className="small right material-icons contact-form__icon--close" onClick={(e) => this.exitForm(e)}>close</i>
-          {/* </div> */}
+          <i id='contact-form__icon--close' className="small material-icons contact-form__icon--close" onClick={(e) => this.exitForm(e)}>close</i>
           <form className='contact-form' onSubmit={(e) => this.handleSubmit(e) }>
             { this.props.submitInfoSuccess ?
               <div className='center-align' style={{height: this.state.formHeight, paddingTop: '2rem'}}>
@@ -124,8 +122,8 @@ class ContactForm extends React.Component {
                 </div>
 
                 <div className='row'>
-                  <div className='col s6'>
-                    <p className='contact-form__label--radio-group'>Are You a...</p>
+                  <div className='col m6'>
+                    <p className=''>Are You a...</p>
                     <p>
                       <input type="checkbox" name='contactTypes' id="investor" value='investor' checked={this.state.contactTypes.includes('investor')} onChange={this.handleToggleCheckbox}/>
                       <label htmlFor="investor">Investor</label>
@@ -146,53 +144,23 @@ class ContactForm extends React.Component {
                       <input type='abc' id='content-type-other-text' className='ggg' name="contactType" placeholder='specify' onChange={this.handleToggleCheckbox} />
                     } */}
                     {this.state.contactTypes.includes('other') &&
-                      <input type='abc' id='contactTypeOtherText' className='ggg' name="contactTypeOtherText" value={this.state.contactTypeOtherText} placeholder='specify' onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
+                      <input type='abc' id='contactTypeOtherText' className='contact-form__input--custom' name="contactTypeOtherText" value={this.state.contactTypeOtherText} placeholder='specify' onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
                     }
                   </div>
-                {/* <div>
-                  <p className='contact-form__label--radio-group'>Are you a:</p>
-                  <p>
-                    <input name="contactType" type="radio" id="investor" value='investor' defaultChecked onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
-                    <label htmlFor="investor">Investor</label>
-                  </p>
-                  <p>
-                    <input name="contactType" type="radio" id="health_care_provider" value='health_care_provider' onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
-                    <label htmlFor="health_care_provider">Health Care Provider</label>
-                  </p>
-                  <p>
-                    <input name="contactType" type="radio" id="patient" value='patient' onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
-                    <label htmlFor="patient">Patient</label>
-                  </p>
-                  <p>
-                    <input name="contactType" type="radio" id="other" value='other' onChange={(e) => {
-                      if (this.state.contactType !== 'other') {
-                        this.setState({[e.target.name]: e.target.value})
-                      }
-                    }} />
-                    <label htmlFor="other">Other</label>
-                  </p>
-                  {(this.state.contactType !== 'investor' && this.state.contactType !== 'health_care_provider' && this.state.contactType !== 'patient') &&
-                    <input type='abc' className='ggg' name="contactType" placeholder='specify' onChange={(e) => this.setState({[e.target.name]: e.target.value})} />
-                  }
-                </div> */}
-
-                  <div className='col s6'>
-                    <p>Would You be Interested in Joining Our Beta Program?</p>
+                  <div className='col m6'>
+                    <p className='contact-form__checkbox-group__label--beta'>Would You be Interested in Joining Our Beta Program?</p>
                     <p>
                       <input type="checkbox" name='betaVolunteer' id='betaVolunteer' value={true} checked={this.state.betaVolunteer} onChange={(e) => this.setState({betaVolunteer: !this.state.betaVolunteer})} />
                       <label htmlFor="betaVolunteer">Yes</label>
                     </p>
                   </div>
                 </div>
-
-
                 <div className="row">
                   <div className="input-field col s12">
                     <textarea id="comments" name='comments' className="materialize-textarea" onChange={(e) => this.setState({[e.target.name]: e.target.value})}></textarea>
                     <label htmlFor="comments">Any Comments? (optional)</label>
                   </div>
                 </div>
-
                 <div className='row center-align'>
                   <button className='contact-form__button--submit'>Send</button>
                 </div>
