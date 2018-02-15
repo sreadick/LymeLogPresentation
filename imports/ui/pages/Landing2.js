@@ -33,11 +33,10 @@ class Landing2 extends React.Component {
                 <p className='landing__section__subheading'>For healthcare professionals, you will be able to track your patients' symptoms and medications over time, and quickly discover which medications work best for each individual patient.</p>
                 {/* <p className='landing__section__subheading'>If you suffer from late Lyme Disease, please give our app a try.  You will optimize your treatment, and feel so much better.</p> */}
               </div>
-              <Link className="landing__section__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
+              <Link className="landing__section__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed!</Link>
             </div>
 
             <div className='landing__section__video__wrapper'>
-              {/* <img src='/images/computer_screen.jpg'/> */}
               <video className='responsive-video landing__section__video' poster='/images/LandingPageScreenshot.png' autoPlay loop controls>
                 <source
                   src='/videos/test_v1-2018-02-14_20.46.54.mp4'
@@ -54,7 +53,7 @@ class Landing2 extends React.Component {
 
           <div className='landing__section--feature-item__row'>
             <div className="landing__section--feature-item">
-              <i className="landing__section--feature-item__icon material-icons">schedule</i>
+              <i className="landing__section--feature-item__icon material-icons">laptop_windows</i>
               <h5 className='landing__section--feature-item__caption'>Select Symptoms and Treatments</h5>
             </div>
             <div className="landing__section--feature-item">
@@ -67,7 +66,7 @@ class Landing2 extends React.Component {
             </div>
             <div className="landing__section--feature-item">
               <i className="landing__section--feature-item__icon material-icons">people_outline</i>
-              <h5 className='landing__section--feature-item__caption'>Be Part of the Community</h5>
+              <h5 className='landing__section--feature-item__caption'>Join the Community</h5>
             </div>
           </div>
         </div>
@@ -95,7 +94,7 @@ class Landing2 extends React.Component {
               type="video/webm" />
           </video>
 
-          <Link className="landing__section__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
+          <Link className="landing__section__button z-depth-4" onClick={() => Session.set('showContactForm', true)} to="#">KEEP ME INFORMED!</Link>
         </div>
       </div>
     );

@@ -7,9 +7,10 @@ const PublicHeader = (props) => (
   <div className='nav-header'>
     <div className="nav-header__content">
       <div className='nav-header__title'>{props.title}</div>
-      {/* <div>(This Page is Under Construction)</div> */}
-      <div></div>
-      <div></div>
+      {/* <div className='nav-header__notice'>(This Page is Under Construction)</div> */}
+      <div className='nav-header__notice'>Page is Under Construction</div>
+      {/* <div></div>
+      <div></div> */}
 
       {/* <div>
         {props.currentPage === 'ClinicianLanding' ?

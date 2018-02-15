@@ -7,7 +7,6 @@ export const Contacts = new Mongo.Collection('contacts');
 
 if (Meteor.isServer) {
   Meteor.publish('contacts', function() {
-    console.log('sazf');
     return Contacts.find({});
     this.ready();
   });
