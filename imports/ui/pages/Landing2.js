@@ -38,7 +38,7 @@ class Landing2 extends React.Component {
 
             <div className='landing__section__video__wrapper'>
               {/* <img src='/images/computer_screen.jpg'/> */}
-              <video className='responsive-video landing__section__video' autoPlay loop controls>
+              <video className='responsive-video landing__section__video' poster='/images/LandingPageScreenshot.png' autoPlay loop controls>
                 <source
                   src='/videos/test_v1-2018-02-14_20.46.54.mp4'
                   type="video/mp4" />
@@ -83,11 +83,17 @@ class Landing2 extends React.Component {
             {/* <p>If you suffer from late Lyme Disease, please give our app a try.  You will optimize your treatment, and feel so much better.</p> */}
           </div>
 
-          {/* <div className='landing__section__video__wrapper'> */}
-            <video className='responsive-video landing__section__video' autoPlay loop controls>
-              <source src='/videos/Kazam_screencast_00000.mp4' type="video/mp4" />
-            </video>
-          {/* </div> */}
+          <video className='responsive-video landing__section__video' poster='/images/LandingPageScreenshot.png' loop controls>
+            <source
+              src='/videos/test_v1-2018-02-14_20.46.54.mp4'
+              type="video/mp4" />
+            <source
+              src='/videos/test_v1-2018-02-14_20.59.41.ogg'
+              type="video/ogg" />
+            <source
+              src='/videos/test_v1-2018-02-14_21.30.35.webm'
+              type="video/webm" />
+          </video>
 
           <Link className="landing__section__button" onClick={() => Session.set('showContactForm', true)} to="#">Keep Me Informed</Link>
         </div>
