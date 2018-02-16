@@ -8,7 +8,7 @@ const PublicHeader = (props) => (
     <div className="nav-header__content">
       <div className='nav-header__title'>{props.title}</div>
       {/* <div className='nav-header__notice'>(This Page is Under Construction)</div> */}
-      <div className='nav-header__notice'>Page is Under Construction</div>
+      <div className='nav-header__notice'>App is Under Construction</div>
       {/* <div></div>
       <div></div> */}
 
