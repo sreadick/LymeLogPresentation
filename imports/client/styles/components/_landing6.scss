@@ -81,8 +81,8 @@
     width: 24rem;
     width: 85%;
     width: 70%;
-    border-radius: 20px;
-    border: 1px solid #444;
+    // border-radius: 20px;
+    // border: 1px solid #444;
   }
 
   .landing__section__button {
@@ -104,10 +104,14 @@
     //edit
     // background: #f5f5f5;
     // color: $dark-blue;
+    background: lighten($dark-blue, 10%);
+    background: #5c6bc0;
     color: #f5f5f5;
-    font-size: 1.1rem;
-    letter-spacing: 4px;
-    border: 1px solid #aaa;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    border: 1px solid darken(#5c6bc0, 10%);
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
   }
   @media screen and (min-width: $tablet-breakpoint) {
     display: none;

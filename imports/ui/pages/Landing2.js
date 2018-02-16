@@ -82,7 +82,7 @@ class Landing2 extends React.Component {
             {/* <p>If you suffer from late Lyme Disease, please give our app a try.  You will optimize your treatment, and feel so much better.</p> */}
           </div>
 
-          <video className='responsive-video landing__section__video' poster='/images/LandingPageScreenshot.png' loop controls>
+          <video className='responsive-video landing__section__video z-depth-4' poster='/images/LandingPageScreenshot.png' loop controls>
             <source
               src='/videos/test_v1-2018-02-14_20.46.54.mp4'
               type="video/mp4" />
@@ -93,7 +93,7 @@ class Landing2 extends React.Component {
               src='/videos/test_v1-2018-02-14_21.30.35.webm'
               type="video/webm" />
           </video>
-
+          {/* <div className="btn" onClick={() => Session.set('showContactForm', true)}>KEEP ME INFORMED!</div> */}
           <Link className="landing__section__button z-depth-4" onClick={() => Session.set('showContactForm', true)} to="#">KEEP ME INFORMED!</Link>
         </div>
       </div>
