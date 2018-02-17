@@ -38,14 +38,23 @@ class Landing2 extends React.Component {
 
             <div className='landing__section__video__wrapper'>
               <video className='responsive-video landing__section__video' poster='/images/LandingPageScreenshot.png' autoPlay loop controls>
-                <source
+                {/* <source
                   src='/videos/test_v1-2018-02-14_20.46.54.mp4'
                   type="video/mp4" />
                 <source
                   src='/videos/test_v1-2018-02-14_20.59.41.ogg'
-                  type="video/ogg" />
-                <source
+                  type="video/ogg" /> */}
+                {/* <source
                   src='/videos/test_v1-2018-02-14_21.30.35.webm'
+                  type="video/webm" /> */}
+                {/* <source
+                  src='/videos/vid_edit_2.webm'
+                  type="video/webm" /> */}
+                {/* <source
+                  src='/videos/vid_edit_3.webm'
+                  type="video/webm" /> */}
+                <source
+                  src='/videos/preview_1.webm'
                   type="video/webm" />
               </video>
             </div>
@@ -83,7 +92,7 @@ class Landing2 extends React.Component {
           </div>
 
           <video className='responsive-video landing__section__video z-depth-4' poster='/images/LandingPageScreenshot.png' loop controls>
-            <source
+            {/* <source
               src='/videos/test_v1-2018-02-14_20.46.54.mp4'
               type="video/mp4" />
             <source
@@ -91,10 +100,21 @@ class Landing2 extends React.Component {
               type="video/ogg" />
             <source
               src='/videos/test_v1-2018-02-14_21.30.35.webm'
+              type="video/webm" /> */}
+            {/* <source
+              src='/videos/vid_edit_2.webm'
+              type="video/webm" /> */}
+            {/* <source
+              src='/videos/vid_edit_3.webm'
+              type="video/webm" /> */}
+            <source
+              src='/videos/preview_1.webm'
               type="video/webm" />
+
           </video>
           {/* <div className="btn" onClick={() => Session.set('showContactForm', true)}>KEEP ME INFORMED!</div> */}
-          <Link className="landing__section__button z-depth-4" onClick={() => Session.set('showContactForm', true)} to="#">KEEP ME INFORMED!</Link>
+          {/* <Link className="landing__section__button z-depth-4" onClick={() => Session.set('showContactForm', true)} to="#">KEEP ME INFORMED!</Link> */}
+          <button className="landing__section__button z-depth-4" onClick={() => Session.set('showContactForm', true)}>Click To Stay Informed</button>
         </div>
       </div>
     );

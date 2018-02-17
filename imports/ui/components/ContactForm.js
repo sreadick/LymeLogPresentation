@@ -125,16 +125,20 @@ class ContactForm extends React.Component {
                   <div className='col m6'>
                     <p className=''>Are You a...</p>
                     <p>
-                      <input type="checkbox" name='contactTypes' id="investor" value='investor' checked={this.state.contactTypes.includes('investor')} onChange={this.handleToggleCheckbox}/>
-                      <label htmlFor="investor">Investor</label>
+                      <input type="checkbox" name='contactTypes' id="patient" value='patient' checked={this.state.contactTypes.includes('patient')} onChange={this.handleToggleCheckbox}/>
+                      <label htmlFor="patient">Patient or Advocate</label>
                     </p>
                     <p>
                       <input type="checkbox" name='contactTypes' id="health_care_provider" value='health_care_provider' checked={this.state.contactTypes.includes('health_care_provider')} onChange={this.handleToggleCheckbox}/>
                       <label htmlFor="health_care_provider">Health Care Provider</label>
                     </p>
                     <p>
-                      <input type="checkbox" name='contactTypes' id="patient" value='patient' checked={this.state.contactTypes.includes('patient')} onChange={this.handleToggleCheckbox}/>
-                      <label htmlFor="patient">Patient</label>
+                      <input type="checkbox" name='contactTypes' id="investor" value='investor' checked={this.state.contactTypes.includes('investor')} onChange={this.handleToggleCheckbox}/>
+                      <label htmlFor="investor">Investor</label>
+                    </p>
+                    <p>
+                      <input type="checkbox" name='contactTypes' id="advertiser" value='advertiser' checked={this.state.contactTypes.includes('advertiser')} onChange={this.handleToggleCheckbox}/>
+                      <label htmlFor="advertiser">Advertiser</label>
                     </p>
                     <p>
                       <input type="checkbox" name='contactTypes' id="other" value='other' checked={this.state.contactTypes.includes('other')} onChange={this.handleToggleCheckbox}/>
